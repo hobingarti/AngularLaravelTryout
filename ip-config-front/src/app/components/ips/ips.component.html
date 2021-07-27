@@ -1,0 +1,4 @@
+<app-add-ip (onAddIp)="addIp($event)" [formIp]="formIp"></app-add-ip>
+<div *ngIf="!showAddIp">
+    <app-ip-item *ngFor="let ip of ips" [ip]="ip" (onEditIp)="editIp(ip)"></app-ip-item>
+</div>

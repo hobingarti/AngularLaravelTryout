@@ -1,0 +1,16 @@
+.ip {
+    background: #cccccc;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+  
+.ip.reminder {
+    border-left: 5px solid green;
+}
+  
+.ip h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
