@@ -28,63 +28,13 @@
   "ips": [
     {
       "id": 1,
-      "ipaddress": "192.168.0.1",
+      "ipaddress": "192.168.0.17",
       "comment": "IP Local"
     },
     {
       "id": 2,
-      "ipaddress": "8.8.8.8",
-      "comment": "DNS Google"
-    },
-    {
-      "ipaddress": "256.0.0.0",
-      "comment": "Wrong Subnet",
-      "id": 3
-    },
-    {
-      "ipaddress": "123.123.123.123",
-      "comment": "123 as IP",
-      "id": 4
-    },
-    {
-      "ipaddress": "8.8.8.8",
-      "comment": "DNS Google",
-      "id": 5
-    },
-    {
-      "ipaddress": "192.165.123.4",
-      "comment": "Test Ip Maybe",
-      "id": 6
-    },
-    {
-      "ipaddress": "174.4asd",
-      "comment": "fatal wrong ip",
-      "id": 7
-    },
-    {
-      "ipaddress": "123123123",
-      "comment": "123",
-      "id": 8
-    },
-    {
-      "ipaddress": "asdasd",
-      "comment": "asdasd",
-      "id": 9
-    },
-    {
-      "ipaddress": "172.16.121.1",
-      "comment": "test check ip address",
-      "id": 10
-    },
-    {
-      "ipaddress": "172.16.121.125",
-      "comment": "laponita",
-      "id": 11
-    },
-    {
-      "ipaddress": "192.1.1.1",
-      "comment": "laponita2",
-      "id": 12
+      "ipaddress": "192.168.1.19",
+      "comment": "rumah mu"
     }
   ]
 }

@@ -14,6 +14,7 @@ export class UiService {
   toggleAddIp(): void {
     this.showAddIp = !this.showAddIp;
     this.subject.next(this.showAddIp);
+    console.log(this.showAddIp);
   }
 
   openEditForm(id: number): void {

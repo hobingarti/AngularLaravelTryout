@@ -26,8 +26,12 @@ export class IpsComponent implements OnInit {
   }
 
   addIp(ip: Ip): void {
-    this.ipService.addIp(ip).subscribe((ip) => this.ips.push(ip));
-    this.uiService.toggleAddIp();
+    if(ip.id! > 0){
+      this.ipService.updateIp(ip).subscribe(() => this.ipService.getIps().subscribe((ips) => this.ips = ips));
+    }else{
+      this.ipService.addIp(ip).subscribe((ip) => this.ips.push(ip));
+    }
+    // this.uiService.toggleAddIp();
   }
 
   editIp(ip: Ip): void {

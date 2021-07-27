@@ -46,6 +46,7 @@ export class AddIpComponent implements OnInit {
 
     this.onAddIp.emit(newIp);
 
+    this.id = 0;
     this.ipaddress = '';
     this.comment = '';
     this.uiService.toggleAddIp();
@@ -56,6 +57,7 @@ export class AddIpComponent implements OnInit {
   }
 
   fetchForm(ip: Ip): void {
+    this.id = ip.id!;
     this.ipaddress = ip.ipaddress;
     this.comment = ip.comment;
   }
