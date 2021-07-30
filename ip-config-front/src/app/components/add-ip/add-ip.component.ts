@@ -18,10 +18,11 @@ export class AddIpComponent implements OnInit {
   comment: string = '';
   showAddIp: boolean = false;
   subscription: Subscription = new Subscription;
+  editMode: boolean = false;
 
   constructor(private uiService: UiService, private ipService: IpService) { 
-    this.subscription = this.uiService.onToggle().subscribe((value) => (this.showAddIp = value));
-    this.subscription = this.uiService.onOpenEditForm().subscribe((value) => this.loadForm(value));
+    this.subscription = this.uiService.onToggle().subscribe((value) => (this.editMode = false, this.clearForm(), this.showAddIp = value));
+    this.subscription = this.uiService.onOpenEditForm().subscribe((value) => (this.loadForm(value)));
   }
 
   ngOnInit(): void {
@@ -56,10 +57,18 @@ export class AddIpComponent implements OnInit {
     this.ipService.editIp(id).subscribe((value) => this.fetchForm(value));
   }
 
+  clearForm(): void {
+    this.id = 0;
+    this.ipaddress = '';
+    this.comment = '';
+  }
+
   fetchForm(ip: Ip): void {
     this.id = ip.id!;
     this.ipaddress = ip.ipaddress;
     this.comment = ip.comment;
+
+    this.editMode = true
   }
 
   setAttributes(ip: Ip): void {

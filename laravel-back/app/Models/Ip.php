@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Ip extends Model
 {
     use HasFactory;
+
+    protected $fillable = array('ipaddress', 'comment');
 }

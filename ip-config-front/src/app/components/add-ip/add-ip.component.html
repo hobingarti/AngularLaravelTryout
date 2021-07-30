@@ -2,12 +2,11 @@
     <div class="form-control">
         <label for="ipaddress">Ip</label>
         <input type="hidden" name="id" [(ngModel)]="id" id="id" placeholder="id">
-        <input type="text" name="ipaddress" [(ngModel)]="ipaddress" id="ipaddress" placeholder="Add Ip">
+        <input type="text" name="ipaddress" [(ngModel)]="ipaddress" id="ipaddress" placeholder="Add Ip" [attr.readonly]="editMode ? true : null">
     </div>
     <div class="form-control">
         <label for="comment">Comment</label>
         <input type="text" name="comment" [(ngModel)]="comment" id="comment" placeholder="Add Comment">
     </div>
-    {{ id }}
     <input type="submit" value="Save Ip" class="btn btn-block">
 </form>

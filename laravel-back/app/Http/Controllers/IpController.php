@@ -15,6 +15,7 @@ class IpController extends Controller
     public function index()
     {
         //
+        return response()->json(Ip::all());
     }
 
     /**
@@ -36,6 +37,11 @@ class IpController extends Controller
     public function store(Request $request)
     {
         //
+        $ip = new Ip;
+        $ip->fill($request->all());
+        $ip->save();
+
+        return $ip;
     }
 
     /**
@@ -47,6 +53,7 @@ class IpController extends Controller
     public function show(Ip $ip)
     {
         //
+        return response()->json($ip);
     }
 
     /**
@@ -70,6 +77,10 @@ class IpController extends Controller
     public function update(Request $request, Ip $ip)
     {
         //
+        $ip->fill($request->all());
+        $ip->save();
+
+        return response()->json($ip);
     }
 
     /**
