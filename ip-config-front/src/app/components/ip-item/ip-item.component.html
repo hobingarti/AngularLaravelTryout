@@ -1,4 +1,4 @@
 <div class="ip" (dblclick)="(onEdit(ip))">
-    <h3>{{ip.ipaddress}}</h3>
+    <h3>{{ip.ipaddress}}<fa-icon *ngIf="isLoggedIn" (click)="(onEdit(ip))" [ngStyle]="{'color':'green'}" [icon]="faEdit"></fa-icon></h3>
     <p>{{ip.comment}}</p>
 </div>

@@ -23,7 +23,7 @@ export class TokenService {
   }
 
   isValidToken() {
-    const token = this.getToken;
+    const token = this.getToken();
 
     if(token){
       const payload = this.payload(token);
@@ -35,7 +35,7 @@ export class TokenService {
     return false;
   }
 
-  payload(token: any) {
+  payload(token: string) {
     const jwtpayload = token.split('.')[1];
     return JSON.parse(atob(jwtpayload));
   }

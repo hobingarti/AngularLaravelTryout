@@ -4,6 +4,7 @@ import { IpService } from 'src/app/services/ip.service';
 import { Subscription } from 'rxjs';
 import { UiService } from 'src/app/services/ui.service';
 import { AddIpComponent } from '../add-ip/add-ip.component';
+import { AuthStateService } from 'src/app/services/auth-state.service';
 
 @Component({
   selector: 'app-ips',
@@ -15,10 +16,12 @@ export class IpsComponent implements OnInit {
   formIp: Ip = {} as Ip;
   showAddIp: boolean = false;
   subscription: Subscription = new Subscription;
+  isLoggedIn: boolean = false;
   
-  constructor(private ipService: IpService, private uiService: UiService) { 
+  constructor(private ipService: IpService, private uiService: UiService, private authState: AuthStateService) { 
     // tambahkan subscription ke uiService disini
     this.subscription = this.uiService.onToggle().subscribe((value) => (this.showAddIp = value));
+    this.subscription = this.authState.userAuthState.subscribe((value) => (this.isLoggedIn = value));
   }
 
   ngOnInit(): void {
@@ -38,7 +41,11 @@ export class IpsComponent implements OnInit {
     // this.ipService.editIp(ip.id!).subscribe(ip => this.formIp = ip);
   
     // this.uiService.toggleAddIp();
-    this.uiService.openEditForm(ip.id!);
+    if(this.isLoggedIn){
+      this.uiService.openEditForm(ip.id!);
+    }else{
+      alert("To Edit Data, User must be logged in");
+    }
   }
 
   UpdateIp(ip: Ip): void {

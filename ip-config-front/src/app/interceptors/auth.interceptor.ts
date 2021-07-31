@@ -17,8 +17,8 @@ export class AuthInterceptor implements HttpInterceptor {
     const accessToken = this.tokenService.getToken();
     request = request.clone({
       setHeaders: {
-        Authorization: "Bearer "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYyNzcxNDYyMSwiZXhwIjoxNjI3NzE4MjIxLCJuYmYiOjE2Mjc3MTQ2MjEsImp0aSI6Ilhqb25TdEFVWUVWYW1ZWjYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.as6iNPvcEVTR0gh-VFMrs7Xj_KsY752scpXTlD4n0G0"
-        // Authorization: "Bearer "+accessToken
+        // Authorization: "Bearer "+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYyNzcxNDYyMSwiZXhwIjoxNjI3NzE4MjIxLCJuYmYiOjE2Mjc3MTQ2MjEsImp0aSI6Ilhqb25TdEFVWUVWYW1ZWjYiLCJzdWIiOjEsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.as6iNPvcEVTR0gh-VFMrs7Xj_KsY752scpXTlD4n0G0"
+        Authorization: "Bearer "+accessToken
       }
     });
     

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Validator;
 
 // apakah perlu ini lagi?
 use App\Http\Controllers\Controller;
