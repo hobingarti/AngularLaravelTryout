@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class IpService {
   private findId!: number;
-  private apiUrl = 'http://localhost:8080/api/ips';
+  private apiUrl = 'http://localhost:8000/api/ips';
   private subjectIp = new Subject<any>();
 
   constructor(private http:HttpClient) { }

@@ -31,13 +31,14 @@ Route::group([
 ], function ($router) {
 
     Route::post('login', [AuthController::class, 'login']);
-    Route::post('logout', [AuthController::class, 'logout'])->middleware('jwt.verify');;
-    Route::post('refresh', [AuthController::class, 'refresh'])->middleware('jwt.verify');;
-    Route::post('me', [AuthController::class, 'me'])->middleware('jwt.verify');;
+    Route::post('logout', [AuthController::class, 'logout'])->middleware('jwt.verify');
+    Route::post('refresh', [AuthController::class, 'refresh'])->middleware('jwt.verify');
+    Route::get('me', [AuthController::class, 'me'])->middleware('jwt.verify');
 
 });
 
 Route::resource('ips', IpController::class);
+// Route::resource('ips', IpController::class)->middleware('jwt.verify');
 
 Route::any('{any}', function(){
     return response()->json([
