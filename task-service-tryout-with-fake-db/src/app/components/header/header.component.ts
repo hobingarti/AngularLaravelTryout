@@ -9,22 +9,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  title: string = 'IP Config';
-  showAddIp: boolean = false;
+  title : string = "Angular Front"
+  showAddTask: boolean = false;
   subscription: Subscription = new Subscription;
 
-  constructor(private router: Router, private uiService: UiService) { 
-    this.subscription = this.uiService.onToggle().subscribe((value) => (this.showAddIp = value));
+  constructor(private uiService:UiService, private router: Router) { 
+    this.subscription = this.uiService.onToggle().subscribe((value) => (this.showAddTask = value));
   }
 
   ngOnInit(): void {
   }
 
-  toggleAddIp(): void {
-    this.uiService.toggleAddIp();
+  toggleAddTask(){
+    this.uiService.toggleAddTask();
   }
 
-  hasRoute(route: string){
+  hasRoute(route: string) {
     return this.router.url === route;
   }
 

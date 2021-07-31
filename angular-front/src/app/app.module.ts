@@ -1,44 +1,52 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; //this one is manually added
-import { RouterModule, Routes } from '@angular/router'; // will added automatically if choose yes when generating angular project and choose yes on angular router
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ButtonComponent } from './components/button/button.component';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { TaskItemComponent } from './components/task-item/task-item.component';
-import { AddTaskComponent } from './components/add-task/add-task.component';
-import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
-
-const appRoutes: Routes = [
-  {path: '', component: TasksComponent},
-  {path: 'about', component: AboutComponent},
-]
+import { ButtonComponent } from './components/button/button.component';
+import { IpsComponent } from './components/ips/ips.component';
+import { IpItemComponent } from './components/ip-item/ip-item.component';
+import { AddIpComponent } from './components/add-ip/add-ip.component';
+import { AboutComponent } from './components/about/about.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    FooterComponent,
     ButtonComponent,
-    TasksComponent,
-    TaskItemComponent,
-    AddTaskComponent,
+    IpsComponent,
+    IpItemComponent,
+    AddIpComponent,
     AboutComponent,
-    FooterComponent
+    SigninComponent,
+    SignupComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule,
+    AppRoutingModule,
     HttpClientModule,
-    FormsModule, //manually added
-    RouterModule.forRoot(appRoutes, {enableTracing: true}),
-
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

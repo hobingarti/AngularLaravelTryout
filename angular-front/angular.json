@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "761e756e-8e86-482a-b18f-05e15b1ac1a2"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-front": {
+    "ip-config-front": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-front",
+            "outputPath": "dist/ip-config-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-front:build:production"
+              "browserTarget": "ip-config-front:build:production"
             },
             "development": {
-              "browserTarget": "angular-front:build:development"
+              "browserTarget": "ip-config-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-front:build"
+            "browserTarget": "ip-config-front:build"
           }
         },
         "test": {
@@ -105,5 +102,5 @@
       }
     }
   },
-  "defaultProject": "angular-front"
+  "defaultProject": "ip-config-front"
 }

@@ -2,4 +2,13 @@
   <app-header></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>
+  <div style="text-align: center;">
+    <button class="btn btn-outline-primary" (click)="signOut()" *ngIf="isSignedIn">Log out</button>
+    <a class="btn btn-outline-primary" routerLink="/login" *ngIf="!isSignedIn">Log In</a>
+    <a class="btn btn-outline-primary" routerLink="/register" *ngIf="!isSignedIn">Register</a>
+    <a class="btn btn-outline-primary" routerLink="/profile" *ngIf="isSignedIn">Profile</a>
+    <a class="btn btn-outline-primary" routerLink="/">Home</a>
+    <a class="btn btn-outline-primary" routerLink="/about">About</a>
+  </div>
+
 </div>

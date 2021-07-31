@@ -5,17 +5,31 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class UiService {
-  private showAddTask: boolean = false;
+  private showAddIp: boolean = false;
   private subject = new Subject<any>();
+  private subjectEditForm = new Subject<any>();
 
   constructor() { }
 
-  toggleAddTask(): void {
-    this.showAddTask = !this.showAddTask;
-    this.subject.next(this.showAddTask);
+  toggleAddIp(): void {
+    this.showAddIp = !this.showAddIp;
+    this.subject.next(this.showAddIp);
+    console.log(this.showAddIp);
+  }
+
+  openEditForm(id: number): void {
+    this.subjectEditForm.next(id);
+    
+    this.showAddIp = true;
+    this.subject.next(this.showAddIp);
   }
 
   onToggle(): Observable<any> {
     return this.subject.asObservable();
   }
+
+  onOpenEditForm(): Observable<any> {
+    return this.subjectEditForm.asObservable();
+  }
+  
 }
